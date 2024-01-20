@@ -1,0 +1,2 @@
+com\aws\cdk\AwsCdkApplication.class
+com\aws\cdk\stack\LambdaStack.class
