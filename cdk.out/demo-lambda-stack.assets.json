@@ -1,0 +1,19 @@
+{
+  "version": "21.0.0",
+  "files": {
+    "82d66f5bba3d1e0b4d6c0b108d9156bff1f30785dae001c6d4d4a79211828c1b": {
+      "source": {
+        "path": "demo-lambda-stack.template.json",
+        "packaging": "file"
+      },
+      "destinations": {
+        "current_account-current_region": {
+          "bucketName": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}",
+          "objectKey": "82d66f5bba3d1e0b4d6c0b108d9156bff1f30785dae001c6d4d4a79211828c1b.json",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-file-publishing-role-${AWS::AccountId}-${AWS::Region}"
+        }
+      }
+    }
+  },
+  "dockerImages": {}
+}

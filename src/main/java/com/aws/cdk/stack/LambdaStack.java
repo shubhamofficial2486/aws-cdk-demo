@@ -30,23 +30,23 @@ public class LambdaStack extends Stack{
 	public LambdaStack(@Nullable Construct scope, @Nullable String id, @Nullable StackProps props) {
 		super(scope, id, props);
 		// TODO Auto-generated constructor stub
-		Function lambdaStackFunction = getLambdaFunction(scope, id);		
-		lambdaStackFunction.addEventSource(new SqsEventSource(Queue.fromQueueArn(this, "SQS-id", "sqs-arn")));
+		Function lambdaStackFunction = getLambdaFunction(id);		
+		lambdaStackFunction.addEventSource(new SqsEventSource(Queue.fromQueueArn(this, "SQS-id", "arn:aws:sqs:"+"me-central-1"+":"+"account"+":sqsName")));
 	
 	}
 
-	private Function getLambdaFunction(Construct scope, String id) {
-		Function lambdaStackFunction = new Function(scope, id, FunctionProps.builder()
+	private Function getLambdaFunction(String id) {
+		Function lambdaStackFunction = new Function(this, "DEMO_LAMDBA", FunctionProps.builder()
 				.functionName("DEMO_LAMBDA_FUNCTION")
 				.runtime(software.amazon.awscdk.services.lambda.Runtime.PYTHON_3_9)
 				.role(Role.fromRoleName(this, "demo-role-id", "demo-iam-lambda"))
-				.environmentEncryption(Key.fromKeyArn(this, "xkmsKey", "arnOfKmsKey"))
-				.code(Code.fromBucket(Bucket.fromBucketName(this, "bucket-id", "bucketName"), "fileKey"))
+				.environmentEncryption(Key.fromKeyArn(this, "xkmsKey", "arn:aws:kms:"+"me-central-1"+":"+"account"+":key/"+"keyId"))
+				.code(Code.fromBucket(Bucket.fromBucketName(this, "bucket-id", "bucket-name"), "fileKey"))
 				.handler("lambda-handler")
 				.memorySize(128)
 				.timeout(Duration.seconds(60))
 				.environment(Map.of("key","value"))
-				.layers(List.of(LayerVersion.fromLayerVersionArn(this, "layer-id", "layer-arn")))
+				.layers(List.of(LayerVersion.fromLayerVersionArn(this, "layer-id", "arn:aws:lambda:"+"me-central-1"+":"+"account"+":layer:layer-name"+"layer-version")))
 				.allowAllOutbound(getBundlingRequired())
 				.currentVersionOptions(VersionOptions.builder()
 						.description("v1")
@@ -56,17 +56,14 @@ public class LambdaStack extends Stack{
 						.vpcId(id)
 						.availabilityZones(getAvailabilityZones())
 						.build()))
-				.vpcSubnets(SubnetSelection.builder().subnets(List.of(Subnet.fromSubnetId(this, "subnet", "subnetId"))).build())
+				.vpcSubnets(SubnetSelection.builder().subnets(List.of(Subnet.fromSubnetId(this, "subnet", "subnet-id"))).build())
 				.build());
 		return lambdaStackFunction;
 	}
 
 	public LambdaStack(@Nullable Construct scope, @Nullable String id) {
-		super(scope, id);
+		this(scope, id, null);
 		
-		Function lambdaStackFunction = getLambdaFunction(scope, id);
-		
-		lambdaStackFunction.addEventSource(new SqsEventSource(Queue.fromQueueArn(this, "SQS-id", "sqs-arn")));
 	}
 	
 	 
