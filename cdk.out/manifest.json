@@ -7,57 +7,33 @@
         "file": "tree.json"
       }
     },
-    "demo-lambda-stack.assets": {
-      "type": "cdk:asset-manifest",
-      "properties": {
-        "file": "demo-lambda-stack.assets.json",
-        "requiresBootstrapStackVersion": 6,
-        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
-      }
-    },
     "demo-lambda-stack": {
       "type": "aws:cloudformation:stack",
       "environment": "aws://unknown-account/unknown-region",
       "properties": {
         "templateFile": "demo-lambda-stack.template.json",
-        "validateOnSynth": false,
-        "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-deploy-role-${AWS::AccountId}-${AWS::Region}",
-        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-cfn-exec-role-${AWS::AccountId}-${AWS::Region}",
-        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/82d66f5bba3d1e0b4d6c0b108d9156bff1f30785dae001c6d4d4a79211828c1b.json",
-        "requiresBootstrapStackVersion": 6,
-        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
-        "additionalDependencies": [
-          "demo-lambda-stack.assets"
-        ],
-        "lookupRole": {
-          "arn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-lookup-role-${AWS::AccountId}-${AWS::Region}",
-          "requiresBootstrapStackVersion": 8,
-          "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
-        }
+        "validateOnSynth": false
       },
-      "dependencies": [
-        "demo-lambda-stack.assets"
-      ],
       "metadata": {
         "/demo-lambda-stack/demo-role-id/Policy/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "demoroleidPolicy1C2B7452",
             "trace": [
-              "new Policy (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-kernel-MRwvji\\node_modules\\@aws-cdk\\aws-iam\\lib\\policy.js:57:26)",
-              "Import.addToPrincipalPolicy (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-kernel-MRwvji\\node_modules\\@aws-cdk\\aws-iam\\lib\\role.js:155:42)",
-              "Grant.addToPrincipal (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-kernel-MRwvji\\node_modules\\@aws-cdk\\aws-iam\\lib\\grant.js:102:65)",
-              "Grant.addToPrincipalOrResource (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-kernel-MRwvji\\node_modules\\@aws-cdk\\aws-iam\\lib\\grant.js:50:30)",
-              "Import.grant (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-kernel-MRwvji\\node_modules\\@aws-cdk\\aws-sqs\\lib\\queue-base.js:96:26)",
-              "Import.grantConsumeMessages (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-kernel-MRwvji\\node_modules\\@aws-cdk\\aws-sqs\\lib\\queue-base.js:49:26)",
-              "SqsEventSource.bind (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-kernel-MRwvji\\node_modules\\@aws-cdk\\aws-lambda-event-sources\\lib\\sqs.js:51:20)",
-              "Function.addEventSource (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-kernel-MRwvji\\node_modules\\@aws-cdk\\aws-lambda\\lib\\function-base.js:188:16)",
-              "C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime14861569090543383755\\lib\\program.js:9855:172",
-              "Kernel._Kernel_ensureSync (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime14861569090543383755\\lib\\program.js:10480:24)",
-              "Kernel.invoke (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime14861569090543383755\\lib\\program.js:9855:102)",
-              "KernelHost.processRequest (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime14861569090543383755\\lib\\program.js:11696:36)",
-              "KernelHost.run (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime14861569090543383755\\lib\\program.js:11656:22)",
-              "Immediate._onImmediate (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime14861569090543383755\\lib\\program.js:11657:46)",
+              "new Policy (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-kernel-tbd2xI\\node_modules\\@aws-cdk\\aws-iam\\lib\\policy.js:57:26)",
+              "Import.addToPrincipalPolicy (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-kernel-tbd2xI\\node_modules\\@aws-cdk\\aws-iam\\lib\\role.js:155:42)",
+              "Grant.addToPrincipal (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-kernel-tbd2xI\\node_modules\\@aws-cdk\\aws-iam\\lib\\grant.js:102:65)",
+              "Grant.addToPrincipalOrResource (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-kernel-tbd2xI\\node_modules\\@aws-cdk\\aws-iam\\lib\\grant.js:50:30)",
+              "Import.grant (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-kernel-tbd2xI\\node_modules\\@aws-cdk\\aws-sqs\\lib\\queue-base.js:96:26)",
+              "Import.grantConsumeMessages (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-kernel-tbd2xI\\node_modules\\@aws-cdk\\aws-sqs\\lib\\queue-base.js:49:26)",
+              "SqsEventSource.bind (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-kernel-tbd2xI\\node_modules\\@aws-cdk\\aws-lambda-event-sources\\lib\\sqs.js:51:20)",
+              "Function.addEventSource (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-kernel-tbd2xI\\node_modules\\@aws-cdk\\aws-lambda\\lib\\function-base.js:188:16)",
+              "C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime468490709786225174\\lib\\program.js:9855:172",
+              "Kernel._Kernel_ensureSync (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime468490709786225174\\lib\\program.js:10480:24)",
+              "Kernel.invoke (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime468490709786225174\\lib\\program.js:9855:102)",
+              "KernelHost.processRequest (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime468490709786225174\\lib\\program.js:11696:36)",
+              "KernelHost.run (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime468490709786225174\\lib\\program.js:11656:22)",
+              "Immediate._onImmediate (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime468490709786225174\\lib\\program.js:11657:46)",
               "process.processImmediate (node:internal/timers:478:21)"
             ]
           }
@@ -67,17 +43,17 @@
             "type": "aws:cdk:warning",
             "data": "No routeTableId was provided to the subnet 'subnet-id'. Attempting to read its .routeTable.routeTableId will return null/undefined. (More info: https://github.com/aws/aws-cdk/pull/3171)",
             "trace": [
-              "Annotations.addMessage (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-kernel-MRwvji\\node_modules\\@aws-cdk\\core\\lib\\annotations.js:86:42)",
-              "Annotations.addWarning (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-kernel-MRwvji\\node_modules\\@aws-cdk\\core\\lib\\annotations.js:32:14)",
-              "new ImportedSubnet (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-kernel-MRwvji\\node_modules\\@aws-cdk\\aws-ec2\\lib\\vpc.js:1206:41)",
-              "Subnet.fromSubnetAttributes (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-kernel-MRwvji\\node_modules\\@aws-cdk\\aws-ec2\\lib\\vpc.js:823:16)",
-              "Subnet.fromSubnetId (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-kernel-MRwvji\\node_modules\\@aws-cdk\\aws-ec2\\lib\\vpc.js:830:21)",
-              "C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime14861569090543383755\\lib\\program.js:9876:152",
-              "Kernel._Kernel_ensureSync (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime14861569090543383755\\lib\\program.js:10480:24)",
-              "Kernel.sinvoke (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime14861569090543383755\\lib\\program.js:9876:102)",
-              "KernelHost.processRequest (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime14861569090543383755\\lib\\program.js:11696:36)",
-              "KernelHost.run (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime14861569090543383755\\lib\\program.js:11656:22)",
-              "Immediate._onImmediate (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime14861569090543383755\\lib\\program.js:11657:46)",
+              "Annotations.addMessage (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-kernel-tbd2xI\\node_modules\\@aws-cdk\\core\\lib\\annotations.js:86:42)",
+              "Annotations.addWarning (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-kernel-tbd2xI\\node_modules\\@aws-cdk\\core\\lib\\annotations.js:32:14)",
+              "new ImportedSubnet (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-kernel-tbd2xI\\node_modules\\@aws-cdk\\aws-ec2\\lib\\vpc.js:1206:41)",
+              "Subnet.fromSubnetAttributes (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-kernel-tbd2xI\\node_modules\\@aws-cdk\\aws-ec2\\lib\\vpc.js:823:16)",
+              "Subnet.fromSubnetId (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-kernel-tbd2xI\\node_modules\\@aws-cdk\\aws-ec2\\lib\\vpc.js:830:21)",
+              "C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime468490709786225174\\lib\\program.js:9876:152",
+              "Kernel._Kernel_ensureSync (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime468490709786225174\\lib\\program.js:10480:24)",
+              "Kernel.sinvoke (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime468490709786225174\\lib\\program.js:9876:102)",
+              "KernelHost.processRequest (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime468490709786225174\\lib\\program.js:11696:36)",
+              "KernelHost.run (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime468490709786225174\\lib\\program.js:11656:22)",
+              "Immediate._onImmediate (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime468490709786225174\\lib\\program.js:11657:46)",
               "process.processImmediate (node:internal/timers:478:21)"
             ]
           }
@@ -87,14 +63,14 @@
             "type": "aws:cdk:logicalId",
             "data": "DEMOLAMDBASecurityGroupC52BD9D5",
             "trace": [
-              "new SecurityGroup (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-kernel-MRwvji\\node_modules\\@aws-cdk\\aws-ec2\\lib\\security-group.js:202:30)",
-              "Function.configureVpc (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-kernel-MRwvji\\node_modules\\@aws-cdk\\aws-lambda\\lib\\function.js:693:58)",
-              "new Function (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-kernel-MRwvji\\node_modules\\@aws-cdk\\aws-lambda\\lib\\function.js:195:29)",
-              "Kernel._Kernel_create (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime14861569090543383755\\lib\\program.js:10108:25)",
-              "Kernel.create (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime14861569090543383755\\lib\\program.js:9779:93)",
-              "KernelHost.processRequest (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime14861569090543383755\\lib\\program.js:11696:36)",
-              "KernelHost.run (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime14861569090543383755\\lib\\program.js:11656:22)",
-              "Immediate._onImmediate (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime14861569090543383755\\lib\\program.js:11657:46)",
+              "new SecurityGroup (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-kernel-tbd2xI\\node_modules\\@aws-cdk\\aws-ec2\\lib\\security-group.js:202:30)",
+              "Function.configureVpc (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-kernel-tbd2xI\\node_modules\\@aws-cdk\\aws-lambda\\lib\\function.js:693:58)",
+              "new Function (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-kernel-tbd2xI\\node_modules\\@aws-cdk\\aws-lambda\\lib\\function.js:195:29)",
+              "Kernel._Kernel_create (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime468490709786225174\\lib\\program.js:10108:25)",
+              "Kernel.create (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime468490709786225174\\lib\\program.js:9779:93)",
+              "KernelHost.processRequest (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime468490709786225174\\lib\\program.js:11696:36)",
+              "KernelHost.run (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime468490709786225174\\lib\\program.js:11656:22)",
+              "Immediate._onImmediate (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime468490709786225174\\lib\\program.js:11657:46)",
               "process.processImmediate (node:internal/timers:478:21)"
             ]
           }
@@ -104,12 +80,12 @@
             "type": "aws:cdk:logicalId",
             "data": "DEMOLAMDBA85684425",
             "trace": [
-              "new Function (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-kernel-MRwvji\\node_modules\\@aws-cdk\\aws-lambda\\lib\\function.js:172:26)",
-              "Kernel._Kernel_create (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime14861569090543383755\\lib\\program.js:10108:25)",
-              "Kernel.create (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime14861569090543383755\\lib\\program.js:9779:93)",
-              "KernelHost.processRequest (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime14861569090543383755\\lib\\program.js:11696:36)",
-              "KernelHost.run (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime14861569090543383755\\lib\\program.js:11656:22)",
-              "Immediate._onImmediate (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime14861569090543383755\\lib\\program.js:11657:46)",
+              "new Function (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-kernel-tbd2xI\\node_modules\\@aws-cdk\\aws-lambda\\lib\\function.js:172:26)",
+              "Kernel._Kernel_create (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime468490709786225174\\lib\\program.js:10108:25)",
+              "Kernel.create (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime468490709786225174\\lib\\program.js:9779:93)",
+              "KernelHost.processRequest (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime468490709786225174\\lib\\program.js:11696:36)",
+              "KernelHost.run (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime468490709786225174\\lib\\program.js:11656:22)",
+              "Immediate._onImmediate (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime468490709786225174\\lib\\program.js:11657:46)",
               "process.processImmediate (node:internal/timers:478:21)"
             ]
           }
@@ -119,16 +95,16 @@
             "type": "aws:cdk:logicalId",
             "data": "DEMOLAMDBASqsEventSourcedemolambdastackSQSidFFE3BCC5F7472017",
             "trace": [
-              "new EventSourceMapping (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-kernel-MRwvji\\node_modules\\@aws-cdk\\aws-lambda\\lib\\event-source-mapping.js:112:39)",
-              "Function.addEventSourceMapping (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-kernel-MRwvji\\node_modules\\@aws-cdk\\aws-lambda\\lib\\function-base.js:139:16)",
-              "SqsEventSource.bind (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-kernel-MRwvji\\node_modules\\@aws-cdk\\aws-lambda-event-sources\\lib\\sqs.js:43:43)",
-              "Function.addEventSource (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-kernel-MRwvji\\node_modules\\@aws-cdk\\aws-lambda\\lib\\function-base.js:188:16)",
-              "C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime14861569090543383755\\lib\\program.js:9855:172",
-              "Kernel._Kernel_ensureSync (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime14861569090543383755\\lib\\program.js:10480:24)",
-              "Kernel.invoke (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime14861569090543383755\\lib\\program.js:9855:102)",
-              "KernelHost.processRequest (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime14861569090543383755\\lib\\program.js:11696:36)",
-              "KernelHost.run (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime14861569090543383755\\lib\\program.js:11656:22)",
-              "Immediate._onImmediate (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime14861569090543383755\\lib\\program.js:11657:46)",
+              "new EventSourceMapping (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-kernel-tbd2xI\\node_modules\\@aws-cdk\\aws-lambda\\lib\\event-source-mapping.js:112:39)",
+              "Function.addEventSourceMapping (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-kernel-tbd2xI\\node_modules\\@aws-cdk\\aws-lambda\\lib\\function-base.js:139:16)",
+              "SqsEventSource.bind (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-kernel-tbd2xI\\node_modules\\@aws-cdk\\aws-lambda-event-sources\\lib\\sqs.js:43:43)",
+              "Function.addEventSource (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-kernel-tbd2xI\\node_modules\\@aws-cdk\\aws-lambda\\lib\\function-base.js:188:16)",
+              "C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime468490709786225174\\lib\\program.js:9855:172",
+              "Kernel._Kernel_ensureSync (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime468490709786225174\\lib\\program.js:10480:24)",
+              "Kernel.invoke (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime468490709786225174\\lib\\program.js:9855:102)",
+              "KernelHost.processRequest (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime468490709786225174\\lib\\program.js:11696:36)",
+              "KernelHost.run (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime468490709786225174\\lib\\program.js:11656:22)",
+              "Immediate._onImmediate (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime468490709786225174\\lib\\program.js:11657:46)",
               "process.processImmediate (node:internal/timers:478:21)"
             ]
           }
@@ -138,19 +114,19 @@
             "type": "aws:cdk:logicalId",
             "data": "CDKMetadata",
             "trace": [
-              "new MetadataResource (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-kernel-MRwvji\\node_modules\\@aws-cdk\\core\\lib\\private\\metadata-resource.js:22:30)",
-              "C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-kernel-MRwvji\\node_modules\\@aws-cdk\\core\\lib\\private\\synthesis.js:139:9",
-              "visit (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-kernel-MRwvji\\node_modules\\@aws-cdk\\core\\lib\\private\\synthesis.js:200:9)",
-              "visit (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-kernel-MRwvji\\node_modules\\@aws-cdk\\core\\lib\\private\\synthesis.js:197:9)",
-              "injectMetadataResources (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-kernel-MRwvji\\node_modules\\@aws-cdk\\core\\lib\\private\\synthesis.js:128:5)",
-              "Object.synthesize (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-kernel-MRwvji\\node_modules\\@aws-cdk\\core\\lib\\private\\synthesis.js:17:5)",
-              "App.synth (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-kernel-MRwvji\\node_modules\\@aws-cdk\\core\\lib\\stage.js:104:41)",
-              "C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime14861569090543383755\\lib\\program.js:9855:172",
-              "Kernel._Kernel_ensureSync (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime14861569090543383755\\lib\\program.js:10480:24)",
-              "Kernel.invoke (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime14861569090543383755\\lib\\program.js:9855:102)",
-              "KernelHost.processRequest (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime14861569090543383755\\lib\\program.js:11696:36)",
-              "KernelHost.run (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime14861569090543383755\\lib\\program.js:11656:22)",
-              "Immediate._onImmediate (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime14861569090543383755\\lib\\program.js:11657:46)",
+              "new MetadataResource (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-kernel-tbd2xI\\node_modules\\@aws-cdk\\core\\lib\\private\\metadata-resource.js:22:30)",
+              "C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-kernel-tbd2xI\\node_modules\\@aws-cdk\\core\\lib\\private\\synthesis.js:139:9",
+              "visit (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-kernel-tbd2xI\\node_modules\\@aws-cdk\\core\\lib\\private\\synthesis.js:200:9)",
+              "visit (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-kernel-tbd2xI\\node_modules\\@aws-cdk\\core\\lib\\private\\synthesis.js:197:9)",
+              "injectMetadataResources (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-kernel-tbd2xI\\node_modules\\@aws-cdk\\core\\lib\\private\\synthesis.js:128:5)",
+              "Object.synthesize (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-kernel-tbd2xI\\node_modules\\@aws-cdk\\core\\lib\\private\\synthesis.js:17:5)",
+              "App.synth (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-kernel-tbd2xI\\node_modules\\@aws-cdk\\core\\lib\\stage.js:104:41)",
+              "C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime468490709786225174\\lib\\program.js:9855:172",
+              "Kernel._Kernel_ensureSync (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime468490709786225174\\lib\\program.js:10480:24)",
+              "Kernel.invoke (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime468490709786225174\\lib\\program.js:9855:102)",
+              "KernelHost.processRequest (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime468490709786225174\\lib\\program.js:11696:36)",
+              "KernelHost.run (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime468490709786225174\\lib\\program.js:11656:22)",
+              "Immediate._onImmediate (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime468490709786225174\\lib\\program.js:11657:46)",
               "process.processImmediate (node:internal/timers:478:21)"
             ]
           }
@@ -160,25 +136,273 @@
             "type": "aws:cdk:logicalId",
             "data": "CDKMetadataAvailable",
             "trace": [
-              "new MetadataResource (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-kernel-MRwvji\\node_modules\\@aws-cdk\\core\\lib\\private\\metadata-resource.js:30:35)",
-              "C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-kernel-MRwvji\\node_modules\\@aws-cdk\\core\\lib\\private\\synthesis.js:139:9",
-              "visit (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-kernel-MRwvji\\node_modules\\@aws-cdk\\core\\lib\\private\\synthesis.js:200:9)",
-              "visit (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-kernel-MRwvji\\node_modules\\@aws-cdk\\core\\lib\\private\\synthesis.js:197:9)",
-              "injectMetadataResources (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-kernel-MRwvji\\node_modules\\@aws-cdk\\core\\lib\\private\\synthesis.js:128:5)",
-              "Object.synthesize (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-kernel-MRwvji\\node_modules\\@aws-cdk\\core\\lib\\private\\synthesis.js:17:5)",
-              "App.synth (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-kernel-MRwvji\\node_modules\\@aws-cdk\\core\\lib\\stage.js:104:41)",
-              "C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime14861569090543383755\\lib\\program.js:9855:172",
-              "Kernel._Kernel_ensureSync (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime14861569090543383755\\lib\\program.js:10480:24)",
-              "Kernel.invoke (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime14861569090543383755\\lib\\program.js:9855:102)",
-              "KernelHost.processRequest (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime14861569090543383755\\lib\\program.js:11696:36)",
-              "KernelHost.run (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime14861569090543383755\\lib\\program.js:11656:22)",
-              "Immediate._onImmediate (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime14861569090543383755\\lib\\program.js:11657:46)",
+              "new MetadataResource (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-kernel-tbd2xI\\node_modules\\@aws-cdk\\core\\lib\\private\\metadata-resource.js:30:35)",
+              "C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-kernel-tbd2xI\\node_modules\\@aws-cdk\\core\\lib\\private\\synthesis.js:139:9",
+              "visit (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-kernel-tbd2xI\\node_modules\\@aws-cdk\\core\\lib\\private\\synthesis.js:200:9)",
+              "visit (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-kernel-tbd2xI\\node_modules\\@aws-cdk\\core\\lib\\private\\synthesis.js:197:9)",
+              "injectMetadataResources (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-kernel-tbd2xI\\node_modules\\@aws-cdk\\core\\lib\\private\\synthesis.js:128:5)",
+              "Object.synthesize (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-kernel-tbd2xI\\node_modules\\@aws-cdk\\core\\lib\\private\\synthesis.js:17:5)",
+              "App.synth (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-kernel-tbd2xI\\node_modules\\@aws-cdk\\core\\lib\\stage.js:104:41)",
+              "C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime468490709786225174\\lib\\program.js:9855:172",
+              "Kernel._Kernel_ensureSync (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime468490709786225174\\lib\\program.js:10480:24)",
+              "Kernel.invoke (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime468490709786225174\\lib\\program.js:9855:102)",
+              "KernelHost.processRequest (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime468490709786225174\\lib\\program.js:11696:36)",
+              "KernelHost.run (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime468490709786225174\\lib\\program.js:11656:22)",
+              "Immediate._onImmediate (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime468490709786225174\\lib\\program.js:11657:46)",
               "process.processImmediate (node:internal/timers:478:21)"
             ]
           }
         ]
       },
       "displayName": "demo-lambda-stack"
+    },
+    "document-stort-db-stack": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://unknown-account/unknown-region",
+      "properties": {
+        "templateFile": "document-stort-db-stack.template.json",
+        "validateOnSynth": false
+      },
+      "metadata": {
+        "/document-store-db-stack/env": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "env",
+            "trace": [
+              "Kernel._Kernel_create (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime468490709786225174\\lib\\program.js:10108:25)",
+              "Kernel.create (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime468490709786225174\\lib\\program.js:9779:93)",
+              "KernelHost.processRequest (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime468490709786225174\\lib\\program.js:11696:36)",
+              "KernelHost.run (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime468490709786225174\\lib\\program.js:11656:22)",
+              "Immediate._onImmediate (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime468490709786225174\\lib\\program.js:11657:46)",
+              "process.processImmediate (node:internal/timers:478:21)"
+            ]
+          }
+        ],
+        "/document-store-db-stack/region": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "region",
+            "trace": [
+              "Kernel._Kernel_create (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime468490709786225174\\lib\\program.js:10108:25)",
+              "Kernel.create (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime468490709786225174\\lib\\program.js:9779:93)",
+              "KernelHost.processRequest (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime468490709786225174\\lib\\program.js:11696:36)",
+              "KernelHost.run (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime468490709786225174\\lib\\program.js:11656:22)",
+              "Immediate._onImmediate (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime468490709786225174\\lib\\program.js:11657:46)",
+              "process.processImmediate (node:internal/timers:478:21)"
+            ]
+          }
+        ],
+        "/document-store-db-stack/readCapacity": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "readCapacity",
+            "trace": [
+              "Kernel._Kernel_create (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime468490709786225174\\lib\\program.js:10108:25)",
+              "Kernel.create (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime468490709786225174\\lib\\program.js:9779:93)",
+              "KernelHost.processRequest (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime468490709786225174\\lib\\program.js:11696:36)",
+              "KernelHost.run (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime468490709786225174\\lib\\program.js:11656:22)",
+              "Immediate._onImmediate (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime468490709786225174\\lib\\program.js:11657:46)",
+              "process.processImmediate (node:internal/timers:478:21)"
+            ]
+          }
+        ],
+        "/document-store-db-stack/writeCapacity": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "writeCapacity",
+            "trace": [
+              "Kernel._Kernel_create (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime468490709786225174\\lib\\program.js:10108:25)",
+              "Kernel.create (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime468490709786225174\\lib\\program.js:9779:93)",
+              "KernelHost.processRequest (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime468490709786225174\\lib\\program.js:11696:36)",
+              "KernelHost.run (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime468490709786225174\\lib\\program.js:11656:22)",
+              "Immediate._onImmediate (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime468490709786225174\\lib\\program.js:11657:46)",
+              "process.processImmediate (node:internal/timers:478:21)"
+            ]
+          }
+        ],
+        "/document-store-db-stack/xks-account": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "xksaccount",
+            "trace": [
+              "Kernel._Kernel_create (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime468490709786225174\\lib\\program.js:10108:25)",
+              "Kernel.create (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime468490709786225174\\lib\\program.js:9779:93)",
+              "KernelHost.processRequest (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime468490709786225174\\lib\\program.js:11696:36)",
+              "KernelHost.run (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime468490709786225174\\lib\\program.js:11656:22)",
+              "Immediate._onImmediate (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime468490709786225174\\lib\\program.js:11657:46)",
+              "process.processImmediate (node:internal/timers:478:21)"
+            ]
+          }
+        ],
+        "/document-store-db-stack/dynamoKeyId": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "dynamoKeyId",
+            "trace": [
+              "Kernel._Kernel_create (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime468490709786225174\\lib\\program.js:10108:25)",
+              "Kernel.create (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime468490709786225174\\lib\\program.js:9779:93)",
+              "KernelHost.processRequest (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime468490709786225174\\lib\\program.js:11696:36)",
+              "KernelHost.run (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime468490709786225174\\lib\\program.js:11656:22)",
+              "Immediate._onImmediate (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime468490709786225174\\lib\\program.js:11657:46)",
+              "process.processImmediate (node:internal/timers:478:21)"
+            ]
+          }
+        ],
+        "/document-store-db-stack/document_store_table": [
+          {
+            "type": "aws:cdk:hasPhysicalName",
+            "data": {
+              "Ref": "documentstoretable5B24CBC6"
+            },
+            "trace": [
+              "ConstructNode.addMetadata (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-kernel-tbd2xI\\node_modules\\@aws-cdk\\core\\lib\\construct-compat.js:416:62)",
+              "new Table (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-kernel-tbd2xI\\node_modules\\@aws-cdk\\aws-dynamodb\\lib\\table.js:508:23)",
+              "Kernel._Kernel_create (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime468490709786225174\\lib\\program.js:10108:25)",
+              "Kernel.create (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime468490709786225174\\lib\\program.js:9779:93)",
+              "KernelHost.processRequest (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime468490709786225174\\lib\\program.js:11696:36)",
+              "KernelHost.run (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime468490709786225174\\lib\\program.js:11656:22)",
+              "Immediate._onImmediate (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime468490709786225174\\lib\\program.js:11657:46)",
+              "process.processImmediate (node:internal/timers:478:21)"
+            ]
+          }
+        ],
+        "/document-store-db-stack/document_store_table/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "documentstoretable5B24CBC6",
+            "trace": [
+              "new Table (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-kernel-tbd2xI\\node_modules\\@aws-cdk\\aws-dynamodb\\lib\\table.js:480:22)",
+              "Kernel._Kernel_create (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime468490709786225174\\lib\\program.js:10108:25)",
+              "Kernel.create (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime468490709786225174\\lib\\program.js:9779:93)",
+              "KernelHost.processRequest (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime468490709786225174\\lib\\program.js:11696:36)",
+              "KernelHost.run (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime468490709786225174\\lib\\program.js:11656:22)",
+              "Immediate._onImmediate (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime468490709786225174\\lib\\program.js:11657:46)",
+              "process.processImmediate (node:internal/timers:478:21)"
+            ]
+          }
+        ],
+        "/document-store-db-stack/document_store_table/ReadScaling/Target/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "documentstoretableReadScalingTarget74EDE012",
+            "trace": [
+              "new ScalableTarget (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-kernel-tbd2xI\\node_modules\\@aws-cdk\\aws-applicationautoscaling\\lib\\scalable-target.js:46:26)",
+              "new BaseScalableAttribute (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-kernel-tbd2xI\\node_modules\\@aws-cdk\\aws-applicationautoscaling\\lib\\base-scalable-attribute.js:38:23)",
+              "new ScalableTableAttribute (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-kernel-tbd2xI\\node_modules\\@aws-cdk\\aws-dynamodb\\lib\\scalable-table-attribute.js:10:9)",
+              "Table.autoScaleReadCapacity (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-kernel-tbd2xI\\node_modules\\@aws-cdk\\aws-dynamodb\\lib\\table.js:707:58)",
+              "C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime468490709786225174\\lib\\program.js:9855:172",
+              "Kernel._Kernel_ensureSync (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime468490709786225174\\lib\\program.js:10480:24)",
+              "Kernel.invoke (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime468490709786225174\\lib\\program.js:9855:102)",
+              "KernelHost.processRequest (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime468490709786225174\\lib\\program.js:11696:36)",
+              "KernelHost.run (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime468490709786225174\\lib\\program.js:11656:22)",
+              "Immediate._onImmediate (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime468490709786225174\\lib\\program.js:11657:46)",
+              "process.processImmediate (node:internal/timers:478:21)"
+            ]
+          }
+        ],
+        "/document-store-db-stack/document_store_table/ReadScaling/Target/Tracking/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "documentstoretableReadScalingTargetTracking97AEB803",
+            "trace": [
+              "new TargetTrackingScalingPolicy (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-kernel-tbd2xI\\node_modules\\@aws-cdk\\aws-applicationautoscaling\\lib\\target-tracking-scaling-policy.js:34:26)",
+              "ScalableTarget.scaleToTrackMetric (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-kernel-tbd2xI\\node_modules\\@aws-cdk\\aws-applicationautoscaling\\lib\\scalable-target.js:129:16)",
+              "ScalableTableAttribute.doScaleToTrackMetric (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-kernel-tbd2xI\\node_modules\\@aws-cdk\\aws-applicationautoscaling\\lib\\base-scalable-attribute.js:90:21)",
+              "ScalableTableAttribute.scaleOnUtilization (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-kernel-tbd2xI\\node_modules\\@aws-cdk\\aws-dynamodb\\lib\\scalable-table-attribute.js:32:15)",
+              "C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime468490709786225174\\lib\\program.js:9855:172",
+              "Kernel._Kernel_ensureSync (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime468490709786225174\\lib\\program.js:10480:24)",
+              "Kernel.invoke (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime468490709786225174\\lib\\program.js:9855:102)",
+              "KernelHost.processRequest (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime468490709786225174\\lib\\program.js:11696:36)",
+              "KernelHost.run (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime468490709786225174\\lib\\program.js:11656:22)",
+              "Immediate._onImmediate (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime468490709786225174\\lib\\program.js:11657:46)",
+              "process.processImmediate (node:internal/timers:478:21)"
+            ]
+          }
+        ],
+        "/document-store-db-stack/document_store_table/WriteScaling/Target/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "documentstoretableWriteScalingTarget132DB6E1",
+            "trace": [
+              "new ScalableTarget (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-kernel-tbd2xI\\node_modules\\@aws-cdk\\aws-applicationautoscaling\\lib\\scalable-target.js:46:26)",
+              "new BaseScalableAttribute (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-kernel-tbd2xI\\node_modules\\@aws-cdk\\aws-applicationautoscaling\\lib\\base-scalable-attribute.js:38:23)",
+              "new ScalableTableAttribute (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-kernel-tbd2xI\\node_modules\\@aws-cdk\\aws-dynamodb\\lib\\scalable-table-attribute.js:10:9)",
+              "Table.autoScaleWriteCapacity (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-kernel-tbd2xI\\node_modules\\@aws-cdk\\aws-dynamodb\\lib\\table.js:736:52)",
+              "C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime468490709786225174\\lib\\program.js:9855:172",
+              "Kernel._Kernel_ensureSync (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime468490709786225174\\lib\\program.js:10480:24)",
+              "Kernel.invoke (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime468490709786225174\\lib\\program.js:9855:102)",
+              "KernelHost.processRequest (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime468490709786225174\\lib\\program.js:11696:36)",
+              "KernelHost.run (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime468490709786225174\\lib\\program.js:11656:22)",
+              "Immediate._onImmediate (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime468490709786225174\\lib\\program.js:11657:46)",
+              "process.processImmediate (node:internal/timers:478:21)"
+            ]
+          }
+        ],
+        "/document-store-db-stack/document_store_table/WriteScaling/Target/Tracking/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "documentstoretableWriteScalingTargetTracking49B11C95",
+            "trace": [
+              "new TargetTrackingScalingPolicy (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-kernel-tbd2xI\\node_modules\\@aws-cdk\\aws-applicationautoscaling\\lib\\target-tracking-scaling-policy.js:34:26)",
+              "ScalableTarget.scaleToTrackMetric (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-kernel-tbd2xI\\node_modules\\@aws-cdk\\aws-applicationautoscaling\\lib\\scalable-target.js:129:16)",
+              "ScalableTableAttribute.doScaleToTrackMetric (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-kernel-tbd2xI\\node_modules\\@aws-cdk\\aws-applicationautoscaling\\lib\\base-scalable-attribute.js:90:21)",
+              "ScalableTableAttribute.scaleOnUtilization (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-kernel-tbd2xI\\node_modules\\@aws-cdk\\aws-dynamodb\\lib\\scalable-table-attribute.js:32:15)",
+              "C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime468490709786225174\\lib\\program.js:9855:172",
+              "Kernel._Kernel_ensureSync (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime468490709786225174\\lib\\program.js:10480:24)",
+              "Kernel.invoke (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime468490709786225174\\lib\\program.js:9855:102)",
+              "KernelHost.processRequest (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime468490709786225174\\lib\\program.js:11696:36)",
+              "KernelHost.run (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime468490709786225174\\lib\\program.js:11656:22)",
+              "Immediate._onImmediate (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime468490709786225174\\lib\\program.js:11657:46)",
+              "process.processImmediate (node:internal/timers:478:21)"
+            ]
+          }
+        ],
+        "/document-store-db-stack/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata",
+            "trace": [
+              "new MetadataResource (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-kernel-tbd2xI\\node_modules\\@aws-cdk\\core\\lib\\private\\metadata-resource.js:22:30)",
+              "C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-kernel-tbd2xI\\node_modules\\@aws-cdk\\core\\lib\\private\\synthesis.js:139:9",
+              "visit (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-kernel-tbd2xI\\node_modules\\@aws-cdk\\core\\lib\\private\\synthesis.js:200:9)",
+              "visit (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-kernel-tbd2xI\\node_modules\\@aws-cdk\\core\\lib\\private\\synthesis.js:197:9)",
+              "injectMetadataResources (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-kernel-tbd2xI\\node_modules\\@aws-cdk\\core\\lib\\private\\synthesis.js:128:5)",
+              "Object.synthesize (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-kernel-tbd2xI\\node_modules\\@aws-cdk\\core\\lib\\private\\synthesis.js:17:5)",
+              "App.synth (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-kernel-tbd2xI\\node_modules\\@aws-cdk\\core\\lib\\stage.js:104:41)",
+              "C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime468490709786225174\\lib\\program.js:9855:172",
+              "Kernel._Kernel_ensureSync (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime468490709786225174\\lib\\program.js:10480:24)",
+              "Kernel.invoke (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime468490709786225174\\lib\\program.js:9855:102)",
+              "KernelHost.processRequest (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime468490709786225174\\lib\\program.js:11696:36)",
+              "KernelHost.run (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime468490709786225174\\lib\\program.js:11656:22)",
+              "Immediate._onImmediate (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime468490709786225174\\lib\\program.js:11657:46)",
+              "process.processImmediate (node:internal/timers:478:21)"
+            ]
+          }
+        ],
+        "/document-store-db-stack/CDKMetadata/Condition": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadataAvailable",
+            "trace": [
+              "new MetadataResource (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-kernel-tbd2xI\\node_modules\\@aws-cdk\\core\\lib\\private\\metadata-resource.js:30:35)",
+              "C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-kernel-tbd2xI\\node_modules\\@aws-cdk\\core\\lib\\private\\synthesis.js:139:9",
+              "visit (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-kernel-tbd2xI\\node_modules\\@aws-cdk\\core\\lib\\private\\synthesis.js:200:9)",
+              "visit (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-kernel-tbd2xI\\node_modules\\@aws-cdk\\core\\lib\\private\\synthesis.js:197:9)",
+              "injectMetadataResources (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-kernel-tbd2xI\\node_modules\\@aws-cdk\\core\\lib\\private\\synthesis.js:128:5)",
+              "Object.synthesize (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-kernel-tbd2xI\\node_modules\\@aws-cdk\\core\\lib\\private\\synthesis.js:17:5)",
+              "App.synth (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-kernel-tbd2xI\\node_modules\\@aws-cdk\\core\\lib\\stage.js:104:41)",
+              "C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime468490709786225174\\lib\\program.js:9855:172",
+              "Kernel._Kernel_ensureSync (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime468490709786225174\\lib\\program.js:10480:24)",
+              "Kernel.invoke (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime468490709786225174\\lib\\program.js:9855:102)",
+              "KernelHost.processRequest (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime468490709786225174\\lib\\program.js:11696:36)",
+              "KernelHost.run (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime468490709786225174\\lib\\program.js:11656:22)",
+              "Immediate._onImmediate (C:\\Users\\sharm\\AppData\\Local\\Temp\\jsii-java-runtime468490709786225174\\lib\\program.js:11657:46)",
+              "process.processImmediate (node:internal/timers:478:21)"
+            ]
+          }
+        ]
+      },
+      "displayName": "document-store-db-stack"
     }
   }
 }

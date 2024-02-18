@@ -9,7 +9,10 @@
 			"README.md",
 			"cdk*.json",
 			"pom.xml",
-			"srec/test"
+			"src/test",
+			"HELP.md",
+			"mvnw",
+			"mvnw.cmd"
 			]
 	},
 	"context":{

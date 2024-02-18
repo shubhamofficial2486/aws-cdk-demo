@@ -277,6 +277,390 @@
           "fqn": "@aws-cdk/core.Stack",
           "version": "1.204.0"
         }
+      },
+      "document-store-db-stack": {
+        "id": "document-store-db-stack",
+        "path": "document-store-db-stack",
+        "children": {
+          "env": {
+            "id": "env",
+            "path": "document-store-db-stack/env",
+            "constructInfo": {
+              "fqn": "@aws-cdk/core.CfnParameter",
+              "version": "1.204.0"
+            }
+          },
+          "region": {
+            "id": "region",
+            "path": "document-store-db-stack/region",
+            "constructInfo": {
+              "fqn": "@aws-cdk/core.CfnParameter",
+              "version": "1.204.0"
+            }
+          },
+          "readCapacity": {
+            "id": "readCapacity",
+            "path": "document-store-db-stack/readCapacity",
+            "constructInfo": {
+              "fqn": "@aws-cdk/core.CfnParameter",
+              "version": "1.204.0"
+            }
+          },
+          "writeCapacity": {
+            "id": "writeCapacity",
+            "path": "document-store-db-stack/writeCapacity",
+            "constructInfo": {
+              "fqn": "@aws-cdk/core.CfnParameter",
+              "version": "1.204.0"
+            }
+          },
+          "xks-account": {
+            "id": "xks-account",
+            "path": "document-store-db-stack/xks-account",
+            "constructInfo": {
+              "fqn": "@aws-cdk/core.CfnParameter",
+              "version": "1.204.0"
+            }
+          },
+          "dynamoKeyId": {
+            "id": "dynamoKeyId",
+            "path": "document-store-db-stack/dynamoKeyId",
+            "constructInfo": {
+              "fqn": "@aws-cdk/core.CfnParameter",
+              "version": "1.204.0"
+            }
+          },
+          "dynamodbKey": {
+            "id": "dynamodbKey",
+            "path": "document-store-db-stack/dynamodbKey",
+            "constructInfo": {
+              "fqn": "@aws-cdk/core.Resource",
+              "version": "1.204.0"
+            }
+          },
+          "document_store_table": {
+            "id": "document_store_table",
+            "path": "document-store-db-stack/document_store_table",
+            "children": {
+              "Resource": {
+                "id": "Resource",
+                "path": "document-store-db-stack/document_store_table/Resource",
+                "attributes": {
+                  "aws:cdk:cloudformation:type": "AWS::DynamoDB::Table",
+                  "aws:cdk:cloudformation:props": {
+                    "keySchema": [
+                      {
+                        "attributeName": "document_id",
+                        "keyType": "HASH"
+                      }
+                    ],
+                    "attributeDefinitions": [
+                      {
+                        "attributeName": "document_id",
+                        "attributeType": "S"
+                      }
+                    ],
+                    "pointInTimeRecoverySpecification": {
+                      "pointInTimeRecoveryEnabled": true
+                    },
+                    "provisionedThroughput": {
+                      "readCapacityUnits": {
+                        "Ref": "readCapacity"
+                      },
+                      "writeCapacityUnits": {
+                        "Ref": "writeCapacity"
+                      }
+                    },
+                    "sseSpecification": {
+                      "sseEnabled": true,
+                      "kmsMasterKeyId": {
+                        "Fn::Join": [
+                          "",
+                          [
+                            "arn:aws:kms:",
+                            {
+                              "Ref": "region"
+                            },
+                            ":",
+                            {
+                              "Ref": "xksaccount"
+                            },
+                            ":key/",
+                            {
+                              "Ref": "dynamoKeyId"
+                            }
+                          ]
+                        ]
+                      },
+                      "sseType": "KMS"
+                    },
+                    "tableName": {
+                      "Fn::Join": [
+                        "",
+                        [
+                          {
+                            "Ref": "env"
+                          },
+                          "document_store"
+                        ]
+                      ]
+                    },
+                    "timeToLiveSpecification": {
+                      "attributeName": "ttl",
+                      "enabled": true
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "@aws-cdk/aws-dynamodb.CfnTable",
+                  "version": "1.204.0"
+                }
+              },
+              "ScalingRole": {
+                "id": "ScalingRole",
+                "path": "document-store-db-stack/document_store_table/ScalingRole",
+                "constructInfo": {
+                  "fqn": "@aws-cdk/core.Resource",
+                  "version": "1.204.0"
+                }
+              },
+              "ReadScaling": {
+                "id": "ReadScaling",
+                "path": "document-store-db-stack/document_store_table/ReadScaling",
+                "children": {
+                  "Target": {
+                    "id": "Target",
+                    "path": "document-store-db-stack/document_store_table/ReadScaling/Target",
+                    "children": {
+                      "Resource": {
+                        "id": "Resource",
+                        "path": "document-store-db-stack/document_store_table/ReadScaling/Target/Resource",
+                        "attributes": {
+                          "aws:cdk:cloudformation:type": "AWS::ApplicationAutoScaling::ScalableTarget",
+                          "aws:cdk:cloudformation:props": {
+                            "maxCapacity": {
+                              "Ref": "readCapacity"
+                            },
+                            "minCapacity": 1,
+                            "resourceId": {
+                              "Fn::Join": [
+                                "",
+                                [
+                                  "table/",
+                                  {
+                                    "Ref": "documentstoretable5B24CBC6"
+                                  }
+                                ]
+                              ]
+                            },
+                            "roleArn": {
+                              "Fn::Join": [
+                                "",
+                                [
+                                  "arn:",
+                                  {
+                                    "Ref": "AWS::Partition"
+                                  },
+                                  ":iam::",
+                                  {
+                                    "Ref": "AWS::AccountId"
+                                  },
+                                  ":role/aws-service-role/dynamodb.application-autoscaling.amazonaws.com/AWSServiceRoleForApplicationAutoScaling_DynamoDBTable"
+                                ]
+                              ]
+                            },
+                            "scalableDimension": "dynamodb:table:ReadCapacityUnits",
+                            "serviceNamespace": "dynamodb"
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "@aws-cdk/aws-applicationautoscaling.CfnScalableTarget",
+                          "version": "1.204.0"
+                        }
+                      },
+                      "Tracking": {
+                        "id": "Tracking",
+                        "path": "document-store-db-stack/document_store_table/ReadScaling/Target/Tracking",
+                        "children": {
+                          "Resource": {
+                            "id": "Resource",
+                            "path": "document-store-db-stack/document_store_table/ReadScaling/Target/Tracking/Resource",
+                            "attributes": {
+                              "aws:cdk:cloudformation:type": "AWS::ApplicationAutoScaling::ScalingPolicy",
+                              "aws:cdk:cloudformation:props": {
+                                "policyName": "documentstoredbstackdocumentstoretableReadScalingTargetTracking32E61941",
+                                "policyType": "TargetTrackingScaling",
+                                "scalingTargetId": {
+                                  "Ref": "documentstoretableReadScalingTarget74EDE012"
+                                },
+                                "targetTrackingScalingPolicyConfiguration": {
+                                  "predefinedMetricSpecification": {
+                                    "predefinedMetricType": "DynamoDBReadCapacityUtilization"
+                                  },
+                                  "targetValue": 70
+                                }
+                              }
+                            },
+                            "constructInfo": {
+                              "fqn": "@aws-cdk/aws-applicationautoscaling.CfnScalingPolicy",
+                              "version": "1.204.0"
+                            }
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "@aws-cdk/aws-applicationautoscaling.TargetTrackingScalingPolicy",
+                          "version": "1.204.0"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/aws-applicationautoscaling.ScalableTarget",
+                      "version": "1.204.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "@aws-cdk/aws-applicationautoscaling.BaseScalableAttribute",
+                  "version": "1.204.0"
+                }
+              },
+              "WriteScaling": {
+                "id": "WriteScaling",
+                "path": "document-store-db-stack/document_store_table/WriteScaling",
+                "children": {
+                  "Target": {
+                    "id": "Target",
+                    "path": "document-store-db-stack/document_store_table/WriteScaling/Target",
+                    "children": {
+                      "Resource": {
+                        "id": "Resource",
+                        "path": "document-store-db-stack/document_store_table/WriteScaling/Target/Resource",
+                        "attributes": {
+                          "aws:cdk:cloudformation:type": "AWS::ApplicationAutoScaling::ScalableTarget",
+                          "aws:cdk:cloudformation:props": {
+                            "maxCapacity": {
+                              "Ref": "writeCapacity"
+                            },
+                            "minCapacity": 4,
+                            "resourceId": {
+                              "Fn::Join": [
+                                "",
+                                [
+                                  "table/",
+                                  {
+                                    "Ref": "documentstoretable5B24CBC6"
+                                  }
+                                ]
+                              ]
+                            },
+                            "roleArn": {
+                              "Fn::Join": [
+                                "",
+                                [
+                                  "arn:",
+                                  {
+                                    "Ref": "AWS::Partition"
+                                  },
+                                  ":iam::",
+                                  {
+                                    "Ref": "AWS::AccountId"
+                                  },
+                                  ":role/aws-service-role/dynamodb.application-autoscaling.amazonaws.com/AWSServiceRoleForApplicationAutoScaling_DynamoDBTable"
+                                ]
+                              ]
+                            },
+                            "scalableDimension": "dynamodb:table:WriteCapacityUnits",
+                            "serviceNamespace": "dynamodb"
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "@aws-cdk/aws-applicationautoscaling.CfnScalableTarget",
+                          "version": "1.204.0"
+                        }
+                      },
+                      "Tracking": {
+                        "id": "Tracking",
+                        "path": "document-store-db-stack/document_store_table/WriteScaling/Target/Tracking",
+                        "children": {
+                          "Resource": {
+                            "id": "Resource",
+                            "path": "document-store-db-stack/document_store_table/WriteScaling/Target/Tracking/Resource",
+                            "attributes": {
+                              "aws:cdk:cloudformation:type": "AWS::ApplicationAutoScaling::ScalingPolicy",
+                              "aws:cdk:cloudformation:props": {
+                                "policyName": "documentstoredbstackdocumentstoretableWriteScalingTargetTrackingAF3F2577",
+                                "policyType": "TargetTrackingScaling",
+                                "scalingTargetId": {
+                                  "Ref": "documentstoretableWriteScalingTarget132DB6E1"
+                                },
+                                "targetTrackingScalingPolicyConfiguration": {
+                                  "predefinedMetricSpecification": {
+                                    "predefinedMetricType": "DynamoDBWriteCapacityUtilization"
+                                  },
+                                  "targetValue": 70
+                                }
+                              }
+                            },
+                            "constructInfo": {
+                              "fqn": "@aws-cdk/aws-applicationautoscaling.CfnScalingPolicy",
+                              "version": "1.204.0"
+                            }
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "@aws-cdk/aws-applicationautoscaling.TargetTrackingScalingPolicy",
+                          "version": "1.204.0"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/aws-applicationautoscaling.ScalableTarget",
+                      "version": "1.204.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "@aws-cdk/aws-applicationautoscaling.BaseScalableAttribute",
+                  "version": "1.204.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "@aws-cdk/aws-dynamodb.Table",
+              "version": "1.204.0"
+            }
+          },
+          "CDKMetadata": {
+            "id": "CDKMetadata",
+            "path": "document-store-db-stack/CDKMetadata",
+            "children": {
+              "Default": {
+                "id": "Default",
+                "path": "document-store-db-stack/CDKMetadata/Default",
+                "constructInfo": {
+                  "fqn": "@aws-cdk/core.CfnResource",
+                  "version": "1.204.0"
+                }
+              },
+              "Condition": {
+                "id": "Condition",
+                "path": "document-store-db-stack/CDKMetadata/Condition",
+                "constructInfo": {
+                  "fqn": "@aws-cdk/core.CfnCondition",
+                  "version": "1.204.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "@aws-cdk/core.Construct",
+              "version": "1.204.0"
+            }
+          }
+        },
+        "constructInfo": {
+          "fqn": "@aws-cdk/core.Stack",
+          "version": "1.204.0"
+        }
       }
     },
     "constructInfo": {
